@@ -1,5 +1,9 @@
+#!/bin/bash
+timestamp=`date +%Y%m%d%H%M%S`
+rm Logs/*.log#!/bin/bash
+
 python -u run.py \
-  --root_path ./dataset/traffic/ \
+  --root_path /git/datasets/ \
   --data_path traffic.csv \
   --model_id traffic \
   --model ETSformer \
@@ -15,10 +19,10 @@ python -u run.py \
   --des 'Exp' \
   --K 3 \
   --learning_rate 1e-3 \
-  --itr 1
+  --itr 1  2>&1 |tee -a Logs/${timestamp}.log
 
 python -u run.py \
-  --root_path ./dataset/traffic/ \
+  --root_path /git/datasets/ \
   --data_path traffic.csv \
   --model_id traffic \
   --model ETSformer \
@@ -34,10 +38,11 @@ python -u run.py \
   --des 'Exp' \
   --K 3 \
   --learning_rate 1e-3 \
-  --itr 1
+  --itr 1  2>&1 |tee -a Logs/${timestamp}.log
+
 
 python -u run.py \
-  --root_path ./dataset/traffic/ \
+  --root_path /git/datasets/ \
   --data_path traffic.csv \
   --model_id traffic \
   --model ETSformer \
@@ -53,10 +58,11 @@ python -u run.py \
   --des 'Exp' \
   --K 3 \
   --learning_rate 1e-3 \
-  --itr 1
+  --itr 1  2>&1 |tee -a Logs/${timestamp}.log
+
 
 python -u run.py \
-  --root_path ./dataset/traffic/ \
+  --root_path /git/dataset/ \
   --data_path traffic.csv \
   --model_id traffic \
   --model ETSformer \
@@ -72,4 +78,5 @@ python -u run.py \
   --des 'Exp' \
   --K 3 \
   --learning_rate 1e-3 \
-  --itr 1
+  --itr 1  2>&1 |tee -a Logs/${timestamp}.log
+
